@@ -137,19 +137,4 @@ class SoftmaxAttention(nn.Module):
                                            hyp_prem_attn,
                                            hypothesis_mask)
 
-        return attended_premises, attended_hypotheses
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
+        return attended_premises, attended_hypotheses       
