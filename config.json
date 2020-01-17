@@ -1,0 +1,27 @@
+{
+    "train_q1_data": "./dataset/train_vectorized_q1.npy",
+    "train_q2_data": "./dataset/train_vectorized_q2.npy",
+    "train_labels_data": "./dataset/train_labels.npy",
+    
+    "dev_q1_data": "./dataset/dev_vectorized_q1.npy",
+    "dev_q2_data": "./dataset/dev_vectorized_q2.npy",
+    "dev_labels_data": "./dataset/dev_labels.npy",
+
+    "test_q1_data": "./dataset/test_vectorized_q1.npy",
+    "test_q2_data": "./dataset/test_vectorized_q2.npy",
+    "test_labels_data": "./dataset/test_labels.npy",
+    
+    "embeddings": "./glove.npy",
+
+    "target_dir": "./saved_models",
+    
+    "hidden_size": 128,
+    "dropout": 0.2,
+    "num_classes": 2,
+
+    "epochs": 20,
+    "batch_size": 32,
+    "lr": 0.0005,
+    "patience": 5,
+    "max_gradient_norm": 10.0
+}
