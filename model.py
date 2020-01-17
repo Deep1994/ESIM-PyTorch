@@ -45,9 +45,6 @@ class ESIM(nn.Module):
         
         # 做batchnormalization之前需要先转换维度
         self.bn_embedding = nn.BatchNorm1d(self.embedding_dim)
-        # self.bn_1 = nn.BatchNorm1d(2*4*self.hidden_size)
-        # self.bn_2 = nn.BatchNorm1d(self.hidden_size)
-        # self.bn_3 = nn.BatchNorm1d(self.hidden_size // 2)
         
         if self.dropout:
             self.rnn_dropout = RNNDropout(p=self.dropout)
@@ -67,16 +64,6 @@ class ESIM(nn.Module):
                                         self.hidden_size, 
                                         self.hidden_size, 
                                         bidirectional=True)
-
-        # self.linear_1 = nn.Sequential(nn.Linear(2*4*self.hidden_size,
-        #                               self.hidden_size),
-        #                               nn.ReLU())
-        # self.linear_2 = nn.Sequential(nn.Linear(self.hidden_size,
-        #                               self.hidden_size // 2),
-        #                               nn.ReLU())
-
-        # self.linear_3 = nn.Linear(self.hidden_size // 2,
-        #                           self.num_classes)
         
         self.classification = nn.Sequential(nn.Linear(2*4*self.hidden_size,
                                                       self.hidden_size),
@@ -152,17 +139,6 @@ class ESIM(nn.Module):
         merged = torch.cat([q1_avg_pool, q1_max_pool, q2_avg_pool, q2_max_pool], dim=1)
         
         # 分类
-        # dense = self.bn_1(merged)
-        # dense = self.linear_1(dense)
-        # dense = self.bn_2(dense)
-        # dense = nn.Dropout(p=self.dropout)(dense)
-        # dense = self.linear_2(dense)
-        # dense = self.bn_3(dense)
-        # dense = nn.Dropout(p=self.dropout)(dense)
-        # logits = self.linear_3(dense)
-
-        # probabilities = nn.functional.softmax(dense, dim=-1)
-
         logits = self.classification(merged)
         probabilities = nn.functional.softmax(logits, dim=-1)
 
