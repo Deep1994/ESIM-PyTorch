@@ -167,34 +167,3 @@ class ESIM(nn.Module):
         probabilities = nn.functional.softmax(logits, dim=-1)
 
         return logits, probabilities
-
-
-        
-   
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
