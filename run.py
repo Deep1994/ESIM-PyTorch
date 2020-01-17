@@ -245,10 +245,4 @@ if __name__ == "__main__":
          config["max_gradient_norm"],
          args.gpu,
          args.checkpoint)
-
-    
-    
-    
-    
-    
     
